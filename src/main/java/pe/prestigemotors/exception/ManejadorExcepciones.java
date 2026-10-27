@@ -1,0 +1,60 @@
+package pe.prestigemotors.exception;
+
+import java.util.LinkedHashMap;
+import java.util.Map;
+
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.http.converter.HttpMessageNotReadableException;
+import org.springframework.web.bind.MethodArgumentNotValidException;
+import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.bind.annotation.RestControllerAdvice;
+import org.springframework.web.method.annotation.MethodArgumentTypeMismatchException;
+import org.springframework.web.multipart.MaxUploadSizeExceededException;
+import org.springframework.web.multipart.support.MissingServletRequestPartException;
+
+/** Convierte los errores en respuestas JSON claras para el frontend. */
+@RestControllerAdvice
+public class ManejadorExcepciones {
+
+    @ExceptionHandler(RecursoNoEncontradoException.class)
+    public ResponseEntity<Map<String, Object>> noEncontrado(RecursoNoEncontradoException ex) {
+        return ResponseEntity.status(HttpStatus.NOT_FOUND).body(cuerpo(ex.getMessage()));
+    }
+
+    @ExceptionHandler(MethodArgumentNotValidException.class)
+    public ResponseEntity<Map<String, Object>> validacion(MethodArgumentNotValidException ex) {
+        Map<String, String> errores = new LinkedHashMap<>();
+        ex.getBindingResult().getFieldErrors()
+                .forEach(e -> errores.putIfAbsent(e.getField(), e.getDefaultMessage()));
+        Map<String, Object> cuerpo = cuerpo("Hay datos inválidos en el formulario");
+        cuerpo.put("errores", errores);
+        return ResponseEntity.badRequest().body(cuerpo);
+    }
+
+    @ExceptionHandler(ArchivoInvalidoException.class)
+    public ResponseEntity<Map<String, Object>> archivoInvalido(ArchivoInvalidoException ex) {
+        return ResponseEntity.badRequest().body(cuerpo(ex.getMessage()));
+    }
+
+    @ExceptionHandler(MaxUploadSizeExceededException.class)
+    public ResponseEntity<Map<String, Object>> archivoGrande(MaxUploadSizeExceededException ex) {
+        return ResponseEntity.badRequest().body(cuerpo("El archivo supera el tamaño máximo permitido (5 MB)"));
+    }
+
+    @ExceptionHandler(MissingServletRequestPartException.class)
+    public ResponseEntity<Map<String, Object>> faltaParte(MissingServletRequestPartException ex) {
+        return ResponseEntity.badRequest().body(cuerpo("Falta adjuntar la licencia de conducir"));
+    }
+
+    @ExceptionHandler({HttpMessageNotReadableException.class, MethodArgumentTypeMismatchException.class})
+    public ResponseEntity<Map<String, Object>> solicitudInvalida(Exception ex) {
+        return ResponseEntity.badRequest().body(cuerpo("La solicitud no es válida"));
+    }
+
+    private Map<String, Object> cuerpo(String mensaje) {
+        Map<String, Object> cuerpo = new LinkedHashMap<>();
+        cuerpo.put("mensaje", mensaje);
+        return cuerpo;
+    }
+}

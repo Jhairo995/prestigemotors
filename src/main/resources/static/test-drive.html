@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Prueba tu auto | Prestige Motors</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css.css">
+</head>
+<body id="inicio">
+
+  <header>
+    <a href="index.html" class="logo"><img src="img/LogoMetalFondoA6AEB0.jpg" alt="Prestige Motors"></a>
+    <nav aria-label="Principal">
+      <a href="index.html">Compra Online</a>
+      <a href="test-drive.html" aria-current="page">Test Drive</a>
+      <a href="AutoSubasta.html">AutoSubasta</a>
+      <a href="contacto.html" class="btn-asesor">Contactar asesor</a>
+    </nav>
+  </header>
+
+  <section class="registro">
+    <div class="registro-form">
+      <a href="javascript:history.back()" class="volver-atras" aria-label="Volver">
+        <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      </a>
+      <h1>Prueba tu auto</h1>
+
+      <form id="form-prueba" action="#" method="post" novalidate>
+        <div class="campo">
+          <label for="identificacion">Identificación fiscal</label>
+          <input type="text" id="identificacion" name="identificacion" placeholder="DNI o RUC" inputmode="numeric" maxlength="11" pattern="(\d{8}|\d{11})" title="DNI (8 dígitos) o RUC (11 dígitos)" required>
+        </div>
+
+        <div class="fila">
+          <div class="campo">
+            <label for="nombre">Nombre</label>
+            <input type="text" id="nombre" name="nombre" placeholder="Jane" maxlength="60" required>
+          </div>
+          <div class="campo">
+            <label for="apellido">Apellido</label>
+            <input type="text" id="apellido" name="apellido" placeholder="Smitherton" maxlength="60" required>
+          </div>
+        </div>
+
+        <div class="campo">
+          <label for="correo">Dirección de correo electrónico</label>
+          <input type="email" id="correo" name="correo" placeholder="email@janesfakedomain.net" maxlength="120" required>
+        </div>
+
+        <div class="campo">
+          <label for="licencia">Licencia de conducir</label>
+          <label class="subir" for="licencia">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 15V4M7 9l5-5 5 5M4 15v4a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-4"/></svg>
+            <span id="licencia-nombre">Subir imagen de su licencia de conducir</span>
+          </label>
+          <input type="file" id="licencia" name="licencia" class="oculto-accesible" accept="image/jpeg,image/png,image/webp,application/pdf" required>
+        </div>
+
+        <div class="campo">
+          <label for="vehiculo">¿Cuál será tu próxima adquisición?</label>
+          <input type="text" id="vehiculo" name="vehiculo" placeholder="Ingresar modelo de vehículo a probar" maxlength="120" required>
+        </div>
+
+        <div class="campo">
+          <label for="tiempoDeseado">Tiempo deseado</label>
+          <input type="text" id="tiempoDeseado" name="tiempoDeseado" placeholder="1 mes" maxlength="40" required>
+        </div>
+
+        <div class="campo check">
+          <input type="checkbox" id="aceptaTerminos" name="aceptaTerminos" required>
+          <label for="aceptaTerminos">Términos y condiciones</label>
+        </div>
+
+        <div class="campo">
+          <label id="firma-etiqueta">Firma digital</label>
+          <canvas id="firma" class="firma" width="740" height="260" role="img" aria-labelledby="firma-etiqueta"></canvas>
+          <button type="button" id="firma-limpiar" class="btn-limpiar">Limpiar firma</button>
+        </div>
+
+        <button type="submit" class="btn-enviar">Enviar</button>
+        <p id="mensaje-prueba" class="mensaje-form" role="status" aria-live="polite"></p>
+      </form>
+    </div>
+
+    <div class="registro-imagen">
+      <img src="img/test-drive.jpg" alt="Conductor probando un auto en una carretera de Lambayeque">
+    </div>
+  </section>
+
+  <footer>
+    <a href="#inicio" class="volver">
+      <span aria-hidden="true">↑</span>
+      Volver arriba
+    </a>
+
+    <div class="footer-cols">
+      <div>
+        <h5>Postventa</h5>
+        <a href="registro.html">Auto Spa</a>
+        <a href="registro.html">Boutique</a>
+        <a href="registro.html">Accesorios</a>
+        <a href="registro.html">Garantía</a>
+        <a href="registro.html">Servicios mecánicos</a>
+      </div>
+      <div>
+        <h5>Marcas asociadas</h5>
+        <a href="https://www.porsche.com/international/">Porsche</a>
+        <a href="https://www.chevrolet.com.pe/">Chevrolet</a>
+        <a href="https://www.audi.com/en">Audi</a>
+        <a href="https://www.mercedes-benz.com.pe/">Mercedes-benz</a>
+        <a href="https://www.mclaren.com/">Mclaren</a>
+        <a href="https://www.mitsubishi-motors.com.pe/">Mitsubishi</a>
+      </div>
+      <div>
+        <h5>Trabaja con nosotros</h5>
+        <a href="#">Empleos</a>
+        <a href="#">Sostenibilidad</a>
+        <a href="#">Logros empresariales</a>
+      </div>
+    </div>
+
+    <p class="copy">© 2026 Prestige Motors Latin America, Inc.</p>
+
+    <div class="footer-base">
+      <div class="legales">
+        <a href="#">Políticas y privacidad</a>
+        <a href="#">Libro de reclamaciones</a>
+        <a href="#">Preferencias de Cookies</a>
+      </div>
+      <div class="redes">
+        <a href="#" aria-label="Facebook">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M13.5 22v-8h2.7l.4-3.2h-3.1V8.8c0-.9.3-1.5 1.6-1.5h1.6V4.4c-.3 0-1.2-.1-2.4-.1-2.4 0-4 1.4-4 4.1v2.4H7.6V14h2.7v8z"/></svg>
+        </a>
+        <a href="#" aria-label="Instagram">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+        </a>
+        <a href="#" aria-label="YouTube">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M21.6 7.2a2.5 2.5 0 0 0-1.8-1.8C18.2 5 12 5 12 5s-6.2 0-7.8.4A2.5 2.5 0 0 0 2.4 7.2C2 8.8 2 12 2 12s0 3.2.4 4.8a2.5 2.5 0 0 0 1.8 1.8C5.8 19 12 19 12 19s6.2 0 7.8-.4a2.5 2.5 0 0 0 1.8-1.8c.4-1.6.4-4.8.4-4.8s0-3.2-.4-4.8zM10 15V9l5.2 3z"/></svg>
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // ---- Envío al backend: POST /api/pruebas-manejo (multipart: datos JSON + licencia) ----
+    const form = document.getElementById("form-prueba");
+    const mensaje = document.getElementById("mensaje-prueba");
+    const boton = form.querySelector(".btn-enviar");
+    const licencia = document.getElementById("licencia");
+
+    function mostrar(texto, tipo) {
+      mensaje.textContent = texto;
+      mensaje.className = "mensaje-form " + tipo;
+    }
+
+    // Si llegas desde detalle.html?vehiculo=... el modelo viene rellenado
+    const vehiculoUrl = new URLSearchParams(location.search).get("vehiculo");
+    if (vehiculoUrl) form.vehiculo.value = vehiculoUrl;
+
+    licencia.addEventListener("change", () => {
+      document.getElementById("licencia-nombre").textContent =
+        licencia.files[0] ? licencia.files[0].name : "Subir imagen de su licencia de conducir";
+    });
+
+    // ---- Firma digital (canvas) ----
+    const canvas = document.getElementById("firma");
+    const ctx = canvas.getContext("2d");
+    ctx.lineWidth = 3; ctx.lineCap = "round"; ctx.lineJoin = "round"; ctx.strokeStyle = "#111";
+    let dibujando = false, hayFirma = false;
+
+    function punto(e) {
+      const r = canvas.getBoundingClientRect();
+      return { x: (e.clientX - r.left) * canvas.width / r.width, y: (e.clientY - r.top) * canvas.height / r.height };
+    }
+    canvas.addEventListener("pointerdown", e => {
+      dibujando = true; canvas.setPointerCapture(e.pointerId);
+      const p = punto(e); ctx.beginPath(); ctx.moveTo(p.x, p.y);
+    });
+    canvas.addEventListener("pointermove", e => {
+      if (!dibujando) return;
+      const p = punto(e); ctx.lineTo(p.x, p.y); ctx.stroke(); hayFirma = true;
+    });
+    ["pointerup", "pointercancel"].forEach(ev => canvas.addEventListener(ev, () => { dibujando = false; }));
+    document.getElementById("firma-limpiar").addEventListener("click", () => {
+      ctx.clearRect(0, 0, canvas.width, canvas.height); hayFirma = false;
+    });
+
+    form.addEventListener("submit", async e => {
+      e.preventDefault();
+      if (!form.reportValidity()) return;
+      if (!hayFirma) { mostrar("Dibuja tu firma digital en el recuadro.", "error"); return; }
+
+      const datos = {
+        identificacion: form.identificacion.value.trim(),
+        nombre: form.nombre.value.trim(),
+        apellido: form.apellido.value.trim(),
+        correo: form.correo.value.trim(),
+        vehiculo: form.vehiculo.value.trim(),
+        tiempoDeseado: form.tiempoDeseado.value.trim(),
+        aceptaTerminos: form.aceptaTerminos.checked,
+        firma: canvas.toDataURL("image/png")
+      };
+      const cuerpoForm = new FormData();
+      cuerpoForm.append("datos", new Blob([JSON.stringify(datos)], { type: "application/json" }));
+      cuerpoForm.append("licencia", licencia.files[0]);
+
+      boton.disabled = true;
+      try {
+        const resp = await fetch("/api/pruebas-manejo", { method: "POST", body: cuerpoForm });
+        const cuerpo = await resp.json().catch(() => ({}));
+        if (resp.ok) {
+          mostrar("¡Solicitud enviada! Tu código es " + cuerpo.codigo + ". Te contactaremos para coordinar tu prueba de manejo.", "ok");
+          form.reset();
+          ctx.clearRect(0, 0, canvas.width, canvas.height); hayFirma = false;
+          document.getElementById("licencia-nombre").textContent = "Subir imagen de su licencia de conducir";
+        } else if (cuerpo.errores) {
+          mostrar(Object.values(cuerpo.errores).join(" · "), "error");
+        } else {
+          mostrar(cuerpo.mensaje || "No se pudo enviar la solicitud.", "error");
+        }
+      } catch (err) {
+        mostrar("No se pudo conectar con el servidor. Verifica que Spring Boot esté encendido.", "error");
+      } finally {
+        boton.disabled = false;
+      }
+    });
+  </script>
+</body>
+</html>
